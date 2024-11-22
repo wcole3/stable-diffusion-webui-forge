@@ -311,7 +311,7 @@ def run_modelmerger(id_task, primary_model_name, secondary_model_name, tertiary_
         metadata["sd_merge_models"] = json.dumps(sd_merge_models)
 
     _, extension = os.path.splitext(output_modelname)
-    if extension.lower() == ".safetensors":
+    if extension.lower() in [".safetensors", ".sft"]:
         safetensors.torch.save_file(theta_0, output_modelname, metadata=metadata if len(metadata)>0 else None)
     else:
         torch.save(theta_0, output_modelname)

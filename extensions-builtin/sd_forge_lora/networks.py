@@ -128,7 +128,7 @@ def load_networks(names, te_multipliers=None, unet_multipliers=None, dyn_dims=No
 
 
 def process_network_files(names: list[str] | None = None):
-    candidates = list(shared.walk_files(shared.cmd_opts.lora_dir, allowed_extensions=[".pt", ".ckpt", ".safetensors"]))
+    candidates = list(shared.walk_files(shared.cmd_opts.lora_dir, allowed_extensions=[".pt", ".ckpt", ".safetensors", ".sft"]))
     for filename in candidates:
         if os.path.isdir(filename):
             continue
